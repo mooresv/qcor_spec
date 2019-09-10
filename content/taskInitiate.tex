@@ -6,25 +6,25 @@
 
 \begin{Csynopsis}
 Handle taskInitiate(Observable *observable, Circuit *circuit, Objective *obj, Optimizer opt)
-
 \end{Csynopsis}
-Handle qcor::taskInitiate(Observable *observable, Circuit *circuit, Objective *obj, Optimizer opt)
 
 \begin{Cppsynopsis}
-
+Handle qcor::taskInitiate(Observable *observable, Kernel *kernel, Objective *obj, Optimizer *opt)
 \end{Cppsynopsis}
 
-
 \begin{apiarguments}
-    \apiargument{}{}{}
+    \apiargument{IN}{observable}{reference to the Observable data structure}
+    \apiargument{IN}{kernel}{reference to the initial quantum state}
+    \apiargument{IN}{obj}{reference to the ObjectiveFunction data structure}
+    \ariargument{IN}{opt}{reference to the classical optimizer}
 \end{apiarguments}
 
 \apidescription{
-    
+The kernelInitialite call is invoked on the host to launch a quantum kernel on the quantum device. The kernelInitialize call references the observable data structure, the initial quantum state, the objective function, and the classical optimizer. After a quantum kernel is launched, host execution continues until the host reaches a synchronization call.  
 }
 
 \apireturnvalues{
-    use shmem tex files as a guide
+    Handle - 
 }      
 
 \apinotes{
