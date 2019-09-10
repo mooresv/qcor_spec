@@ -1,32 +1,35 @@
 \apisummary{
-    
+A call invoked on the host to launch a quantum kernel on the quantum device.   
 }
 
 \begin{apidefinition}
 
 \begin{Csynopsis}
-
+Handle taskInitiate(Observable *observable, Circuit *circuit, Objective *obj, Optimizer opt)
 \end{Csynopsis}
 
 \begin{Cppsynopsis}
-
+Handle qcor::taskInitiate(Observable *observable, Circiut *kernel, Objective *obj, Optimzer opt)
 \end{Cppsynopsis}
 
 
 \begin{apiarguments}
-    \apiargument{}{}{}
+    \apiargument{IN}{observable}{Reference to the Observable data structure}
+    \apiargument{IN}{circuit}{Reference to the initial quantum state}
+    \apiargument{IN}{obj}{Reference to the ObjectiveFunction data structure}
+    \apiargument{IN}{opt}{The classical Optimizer}
 \end{apiarguments}
 
 \apidescription{
-    
+The kernelInitialize call is invoked on the host to launch a quantum kernel on the quantum device. The kernelInitialize call references the observable data structure, the initial quantum state, the objective function, and the classical optimizer. After a quantum kernel has been launched, host execution continues until the host reaches a synchronization call.   
 }
 
 \apireturnvalues{
-    use shmem tex files as a guide
+    Handle
 }      
 
 \apinotes{
-    
+Although from a high level of abstraction, the kernel executes on the quantum device, with variational quantum computing the underlying implementation may iterate execution between the quantum and host devices, with the host performing classical optimization based on measurements from the quantum device.    
 }
 
 \begin{apiexamples}
